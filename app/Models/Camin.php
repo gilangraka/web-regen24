@@ -11,4 +11,5 @@ class Camin extends Model
     protected $table = "camin";
     protected $primaryKey = "id_camin";
     protected $fillable = ["nama", "visi", "misi", "foto"];
+    public $timestamps = false;
 }
