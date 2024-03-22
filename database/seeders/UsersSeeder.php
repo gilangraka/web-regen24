@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +13,11 @@ class UsersSeeder extends Seeder
      */
     public function run(): void
     {
-        $insert = new Users;
+        $insert = new User;
         $insert->nama     = "Panitia Regen 2024";
         $insert->nim      = "Panitia";
         $insert->email    = "Panitia";
-        $insert->id_login = "panitia-regen24@123";
+        $insert->login_id = "panitia-regen24@123";
         $insert->password = "panitia-regen24@123";
         $insert->role_id  = 1;
         $insert->status_memilih = false;
