@@ -24,3 +24,4 @@ Route::group(["middleware" => "auth"], function () {
     Route::get('/users/sudah_memilih', [PanitiaController::class, "tampilUserSudah"]);
     Route::get('/users/belum_memilih', [PanitiaController::class, "tampilUserBelum"]);
 });
+Route::get('/updateChart', [PanitiaController::class, "updateChart"]);
