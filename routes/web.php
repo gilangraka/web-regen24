@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index']);
 
 Route::group(["middleware" => "guest"], function () {
-    Route::get('/login', [PageController::class, 'loginPage'])->name('login');
+    Route::get('/login', [PageController::class, 'loginPage'])->name('login')->middleware('disable_back');
 });
 Route::group(["middleware" => "auth"], function () {
-    Route::get('/dashboard', [PageController::class, 'dashboardPage'])->name('dashboard');
+    Route::get('/dashboard', [PageController::class, 'dashboardPage'])->name('dashboard')->middleware('disable_back');
     Route::get('/dashboard/view_user', [PageController::class, 'viewUserPage']);
     Route::get('/dashboard/view_camin', [PageController::class, 'viewCaminPage']);
 });
