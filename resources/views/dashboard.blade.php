@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>HalamanDashboard</h1>
+    Ini Halaman Dashboard
+
+    @yield('content')
+
+    <form action="{{ url('/logoutAction') }}" method="POST">
+        @csrf
+        <button type="submit">LOGOUT</button>
+    </form>
 </body>
 </html>

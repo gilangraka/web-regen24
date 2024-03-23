@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Document</title>
 </head>
 <body>
-    
-    <form method="post" action="/login">
+    <form action="{{ url('/loginAction') }}" method="POST">
         @csrf
-        Login ID : <input type="text" id="login_id" name="login_id" value="{{ old('login_id') }}" required> <br>
-        Password : <input type="password" id="password" name="password" value="{{ old('password') }}" required> <br>
-        <button type="submit">Login</button>
+        Login ID : <input type="text" name="login_id" id="login_id" value="{{ old('login_id') }}"> <br>
+        Password : <input type="password" name="password" id="password" value="{{ old('password') }}"><br>
+        <button type="submit">LOGIN</button>
     </form>
+
     @if ($message = Session::get('error'))
-        <p>Login error : {{ $message }}</p>
+        <p>Login Error : {{ $message }}</p>
     @endif
 </body>
 </html>

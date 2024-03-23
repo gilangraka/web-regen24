@@ -14,14 +14,14 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         $insert = new User;
-        $insert->nama     = "Panitia Regen 2024";
-        $insert->nim      = "Panitia";
-        $insert->email    = "Panitia";
-        $insert->login_id = "panitia-regen24@123";
-        $insert->password = "panitia-regen24@123";
+        $insert->nama = "Panitia Regen 2024";
+        $insert->nim  = "panitia";
+        $insert->email = "panitia";
+        $insert->login_id = "panitia_regen2024";
+        $insert->password = "panitia_regen2024";
         $insert->role_id  = 1;
-        $insert->status_memilih = false;
-        $insert->pilihan_id = 0;
+        $insert->status_memilih = 0;
+        $insert->camin_id = 0;
         $insert->save();
     }
 }

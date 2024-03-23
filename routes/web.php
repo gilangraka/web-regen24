@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HalamanController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
+Route::get('/', [PageController::class, 'index']);
+
+Route::group(["middleware" => "guest"], function () {
+    Route::get('/login', [PageController::class, 'loginPage'])->name('login');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::group(["middleware" => "auth"], function () {
+    Route::get('/dashboard', [PageController::class, 'dashboardPage'])->name('dashboard');
+    Route::get('/dashboard/view_user', [PageController::class, 'viewUserPage']);
+    Route::get('/dashboard/view_camin', [PageController::class, 'viewCaminPage']);
 });
-Route::post('/login', [AuthController::class, 'actionLogin']);
+
+Route::post('/loginAction', [AuthController::class, 'loginAction']);
+Route::post('/logoutAction', [AuthController::class, 'logoutAction']);
