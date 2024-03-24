@@ -8,44 +8,22 @@ use Illuminate\Http\Request;
 
 class PanitiaController extends Controller
 {
-    // API Start
-    public function tampilUser()
+    public function tambahUser()
     {
-        // Menampilkan semua user
-        $query = User::all();
-        return response()->json($query);
     }
-    public function tampilUserBelum()
+    public function importUser()
     {
-        // Menampilkan user yang belum memilih
-        $query = User::where('status_memilih', 0);
-        return response()->json($query);
     }
-    public function tampilUserSudah()
+    public function exportUser()
     {
-        // Menampilkan user yang sudah memilih
-        $query = User::where('status_memilih', 1);
-        return response()->json($query);
     }
-    public function updateChart()
+    public function tambahCamin()
     {
-        $getCamin = Camin::all();
-        $data_camin = array();
-        foreach ($getCamin as $i) {
-            $data_camin[] = $i['id'];
-        }
-
-        $dataPendukung = array();
-        foreach ($data_camin as $i) {
-            $id_camin = "idCamin_" . $i;
-            $countPendukung = User::where('camin_id', $i)->get()->count();
-
-            $dataPendukung[] = [
-                "id_camin"  => $id_camin,
-                "count_pendukung" => $countPendukung
-            ];
-        }
-        return response()->json($dataPendukung);
     }
-    // API End
+    public function editCamin()
+    {
+    }
+    public function voteThisCamin()
+    {
+    }
 }

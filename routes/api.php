@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PanitiaController;
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(["middleware" => "auth"], function () {
-    Route::get('/users', [PanitiaController::class, "tampilUser"]);
-    Route::get('/users/sudah_memilih', [PanitiaController::class, "tampilUserSudah"]);
-    Route::get('/users/belum_memilih', [PanitiaController::class, "tampilUserBelum"]);
+    Route::get('/users', [ApiController::class, "getUserAll"]);
+    Route::get('/users/sudah_memilih', [ApiController::class, "getUserSudah"]);
+    Route::get('/users/belum_memilih', [ApiController::class, "getUserBelum"]);
+    Route::get('/updateChart', [ApiController::class, "updateChart"]);
 });
-Route::get('/updateChart', [PanitiaController::class, "updateChart"]);
