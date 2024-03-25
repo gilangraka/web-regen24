@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Camin;
+use App\Models\StatusVote;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -49,15 +50,38 @@ class ApiController extends Controller
     }
     public function getCaminAll()
     {
+        $query = Camin::all();
+        return response()->json($query);
     }
-    public function getCaminBerdasarID()
+    public function getCaminByID($id_camin)
     {
+        $query = Camin::where("id", $id_camin);
+        return response()->json($query);
     }
     public function getStatusVote()
     {
+        $query = StatusVote::all();
+        return response()->json($query);
     }
     public function setStatusVote()
     {
+        $getData = StatusVote::find("1");
+
+        if ($getData->status == 1) {
+            $getData->status = 0;
+            $getData->save();
+            return response()->json([
+                "message" => "StatusVote di set menjadi 0",
+                "data"    => $getData->get()
+            ]);
+        }
+
+        $getData->status = 1;
+        $getData->save();
+        return response()->json([
+            "message" => "StatusVote di set menjadi 1",
+            "data" => $getData->get()
+        ]);
     }
     // API End
 }

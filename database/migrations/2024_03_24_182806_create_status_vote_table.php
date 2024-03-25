@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('status_vote', function (Blueprint $table) {
+            $table->id();
             $table->tinyInteger("status");
         });
     }
