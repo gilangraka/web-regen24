@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\StatusVote;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,10 +23,22 @@ class PageController extends Controller
     }
     public function dashboardPage()
     {
+        $query = StatusVote::find("1");
+
         if (Auth::getUser()->role_id == 1) {
             return view('pages.admin.dashboard');
+        } else {
+            if ($query->status == 1) {
+                if (Auth::getUser()->status_memilih == 0) {
+                    return view('pages.user.index-user');
+                } else {
+                    return view('pages.user.thank-you');
+                }
+            } else {
+                Auth::logout();
+                return redirect('/login')->with("error", "Mohon maaf, voting sudah ditutup");
+            }
         }
-        return view('pages.user.index-user');
     }
     public function viewUserPage()
     {

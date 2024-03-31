@@ -36,7 +36,7 @@ class UsersImport implements ToModel, WithHeadingRow
             'nim' => $row["nim"],
             'email' => $row["email"],
             'login_id' => $this->generateUser($row["nama"]),
-            'password' => "pass" . Str::random(4),
+            'password' => "pass_" . Str::random(4),
             'role_id' => 2,
             'status_memilih' => 0,
             'camin_id' => 0
