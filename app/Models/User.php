@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = "users";
     public $timestamps = false;
     protected $fillable = [
         'nama',
@@ -24,7 +25,7 @@ class User extends Authenticatable
         'camin_id'
     ];
 
-    protected $hidden = [
-        'password',
-    ];
+    // protected $hidden = [
+    //     'password',
+    // ];
 }

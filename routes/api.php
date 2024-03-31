@@ -19,13 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(["middleware" => "auth"], function () {
-    Route::get('/users', [ApiController::class, "getUserAll"]);
-    Route::get('/users/sudah_memilih', [ApiController::class, "getUserSudah"]);
-    Route::get('/users/belum_memilih', [ApiController::class, "getUserBelum"]);
-    Route::get('/updateChart', [ApiController::class, "updateChart"]);
-    Route::get('/camin', [ApiController::class, "getCaminAll"]);
-    Route::get('/camin/{id}', [ApiController::class, "getCaminByID"]);
-    Route::get('/get_vote', [ApiController::class, "getStatusVote"]);
-    Route::get('/set_vote', [ApiController::class, "setStatusVote"]);
-});
+Route::get('/users', [ApiController::class, 'getUserAll']);
+Route::get('/users/sudah_memilih', [ApiController::class, 'getUserSudah']);
+Route::get('/users/belum_memilih', [ApiController::class, 'getUserBelum']);
+Route::get('/updateChart', [ApiController::class, 'updateChart']);
+Route::get('/camin', [ApiController::class, 'getCaminAll']);
+Route::get('/camin/{id}', [ApiController::class, 'getCaminByID']);
+Route::get('/get_vote', [ApiController::class, 'getStatusVote']);
+Route::get('/set_vote', [ApiController::class, 'setStatusVote']);
+Route::get('/count_user', [ApiController::class, 'countUser']);

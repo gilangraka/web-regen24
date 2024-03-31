@@ -8,6 +8,7 @@ use App\Models\Camin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -16,10 +17,14 @@ class PanitiaController extends Controller
     private function generateUser($nama_user)
     {
         $login_user = strtolower(substr($nama_user, 0, 4) . "_" . Str::random(4));
-        $query = User::where('login_id', $login_user)->first()->count();
-
-        while ($query > 0) {
-            $login_user = strtolower(substr($nama_user, 0, 4) . "_" . Str::random(4));
+        $query = User::where('login_id', $login_user)->first();
+        $generate = true;
+        while ($generate == true) {
+            if ($query) {
+                $login_user = strtolower(substr($nama_user, 0, 4) . "_" . Str::random(4));
+            } else {
+                $generate = false;
+            }
         }
         return $login_user;
     }
@@ -33,22 +38,22 @@ class PanitiaController extends Controller
         $insert->email = $request->email;
         $insert->login_id = $login_id;
         $insert->password = "pass_" . Str::random(4);
-        $insert->role = 2;
+        $insert->role_id = 2;
         $insert->status_memilih = 0;
         $insert->camin_id = 0;
         $insert->save();
         return redirect('/dashboard/view_user')->with('success', 'Berhasil menambah data user.');
     }
+
     public function importUser(Request $request)
     {
-        $file_excel = $request->file_excel;
-        $excel = Excel::import(new UsersImport, $file_excel);
-
-        if (!$excel) {
-            return redirect('/dashboard/view_user')->with('error', 'Gagal mengimport data user.');
+        $query = Excel::import(new UsersImport, $request->file('file')->store('temp'));
+        if ($query) {
+            return back()->with("success", "Berhasil mengimport data.");
         }
-        return redirect('/dashboard/view_user')->with('success', 'Berhasil mengimport data user.');
+        return back()->with("error", "Gagal mengimport data");
     }
+
     public function exportUser()
     {
         return Excel::download(new UsersExport, 'data_users.xlsx');

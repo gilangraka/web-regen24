@@ -13,20 +13,26 @@ class ApiController extends Controller
     public function getUserAll()
     {
         // Menampilkan semua user
-        $query = User::all();
-        return response()->json($query);
+        $query = User::orderBy('id', 'asc')->get();
+        return response()->json([
+            "data"  => $query
+        ]);
     }
     public function getUserBelum()
     {
         // Menampilkan user yang belum memilih
-        $query = User::where('status_memilih', 0);
-        return response()->json($query);
+        $query = User::where('status_memilih', 0)->orderBy('id', 'asc')->get();
+        return response()->json([
+            "data"  => $query
+        ]);
     }
     public function getUserSudah()
     {
         // Menampilkan user yang sudah memilih
-        $query = User::where('status_memilih', 1);
-        return response()->json($query);
+        $query = User::where('status_memilih', 1)->orderBy('id', 'asc')->get();
+        return response()->json([
+            "data"  => $query
+        ]);
     }
     public function updateChart()
     {
@@ -55,7 +61,7 @@ class ApiController extends Controller
     }
     public function getCaminByID($id_camin)
     {
-        $query = Camin::where("id", $id_camin);
+        $query = Camin::where("id", $id_camin)->get();
         return response()->json($query);
     }
     public function getStatusVote()
@@ -81,6 +87,17 @@ class ApiController extends Controller
         return response()->json([
             "message" => "StatusVote di set menjadi 1",
             "data" => $getData->get()
+        ]);
+    }
+    public function countUser()
+    {
+        $query1 = User::all()->count();
+        $query2 = User::where('status_memilih', 1)->get()->count();
+        $query3 = User::where('status_memilih', 0)->get()->count();
+        return response()->json([
+            "total_user" => $query1,
+            "sudah_memilih" => $query2,
+            "belum_memilih" => $query3
         ]);
     }
     // API End

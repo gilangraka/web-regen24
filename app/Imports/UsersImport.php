@@ -17,10 +17,14 @@ class UsersImport implements ToModel, WithHeadingRow
     private function generateUser($nama_user)
     {
         $login_user = strtolower(substr($nama_user, 0, 4) . "_" . Str::random(4));
-        $query = User::where('login_id', $login_user)->first()->count();
-
-        while ($query > 0) {
-            $login_user = strtolower(substr($nama_user, 0, 4) . "_" . Str::random(4));
+        $query = User::where('login_id', $login_user)->first();
+        $generate = true;
+        while ($generate == true) {
+            if ($query) {
+                $login_user = strtolower(substr($nama_user, 0, 4) . "_" . Str::random(4));
+            } else {
+                $generate = false;
+            }
         }
         return $login_user;
     }
@@ -28,10 +32,10 @@ class UsersImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new User([
-            'nama' => $row['Nama'],
-            'nim' => $row['NIM'],
-            'email' => $row['Email'],
-            'login_id' => $this->generateUser($row['Nama']),
+            'nama' => $row["nama"],
+            'nim' => $row["nim"],
+            'email' => $row["email"],
+            'login_id' => $this->generateUser($row["nama"]),
             'password' => "pass" . Str::random(4),
             'role_id' => 2,
             'status_memilih' => 0,
