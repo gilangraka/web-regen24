@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\PageController;
@@ -28,6 +29,7 @@ Route::group(["middleware" => "auth"], function () {
     Route::get('/dashboard/view_camin', [PageController::class, 'viewCaminPage']);
 });
 
+Route::post('/vote_camin', [ApiController::class, 'voteCamin']);
 Route::post('/tambah_user', [PanitiaController::class, 'tambahUser']);
 Route::post('/import_user', [PanitiaController::class, 'importUser']);
 Route::get('/export_user', [PanitiaController::class, 'exportUser']);

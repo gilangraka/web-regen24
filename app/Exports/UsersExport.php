@@ -14,7 +14,7 @@ class UsersExport implements FromCollection, WithHeadings, WithStrictNullCompari
      */
     public function collection()
     {
-        return User::all();
+        return User::where('role_id', 2)->get();
     }
 
     public function headings(): array

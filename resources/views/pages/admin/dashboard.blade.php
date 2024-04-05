@@ -38,14 +38,10 @@
                     Luhut
                 </h5>
                 <span class="text-sm text-gray-500 dark:text-gray-400">Nomor Urut 1</span>
-                <div class="flex my-4 md:my-6 w-full">
-                    <div class="w-full mx-10 bg-gray-200 rounded-full dark:bg-gray-700">
-                        <div class="bg-[#12CC76] text-xs md:text-base font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-6"
-                            style="width: 28%"></div>
-                    </div>
-                </div>
+
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    74.38% - 90 dari 121
+                    <span id="presentase_camin_1"></span>% - <span id="count_camin_1"></span> dari <span
+                        class="user_sudah_pilih"></span>
                 </h5>
             </div>
         </div>
@@ -58,14 +54,10 @@
                     Komeng
                 </h5>
                 <span class="text-sm text-gray-500 dark:text-gray-400">Nomor Urut 2</span>
-                <div class="flex my-4 md:my-6 w-full">
-                    <div class="w-full mx-10 bg-gray-200 rounded-full dark:bg-gray-700">
-                        <div class="bg-[#12CC76] text-xs md:text-base font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-6"
-                            style="width: 56%"></div>
-                    </div>
-                </div>
+
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    12.40% - 15 dari 121
+                    <span id="presentase_camin_2"></span>% - <span id="count_camin_2"></span> dari <span
+                        class="user_sudah_pilih"></span>
                 </h5>
             </div>
         </div>
@@ -78,14 +70,10 @@
                     Emm..
                 </h5>
                 <span class="text-sm text-gray-500 dark:text-gray-400">Nomor Urut 3</span>
-                <div class="flex my-4 md:my-6 w-full">
-                    <div class="w-full mx-10 bg-gray-200 rounded-full dark:bg-gray-700">
-                        <div class="bg-[#12CC76] text-xs md:text-base font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-6"
-                            style="width: 16%"></div>
-                    </div>
-                </div>
+
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    13.22% - 16 dari 121
+                    <span id="presentase_camin_3"></span>% - <span id="count_camin_3"></span> dari <span
+                        class="user_sudah_pilih"></span>
                 </h5>
             </div>
         </div>
@@ -113,14 +101,16 @@
         <div
             class="w-full md:col-span-2 p-6 bg-white border border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
 
-            <a href="#">
+            <a href="#" class="flex items-center justify-between">
                 <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
                     Update Peserta
                 </h5>
-                <h5 class="mb-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white">
-                    72.46% - 121 dari 167
-                </h5>
+                <button onclick="refreshTable()"
+                    class="p-2 px-4 text-white rounded-lg bg-blue-900 transition hover:bg-blue-950 ">Refresh</button>
             </a>
+            <h5 class="mb-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white">
+                <span class="user_sudah_pilih"></span> dari <span id="total_user"></span> anggota sudah melakukan vote
+            </h5>
             <div class="relative overflow-x-auto">
                 <table id="myTable" class="display nowrap w-full">
                     <thead>
@@ -135,146 +125,6 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">1</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">1</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">1</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">1</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>14</td>
-                            <td>Haydar</td>
-                            <td>4.33.23.0.19</td>
-                            <td>haydar@gmail.com</td>
-                            <td>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
                             <td>Haydar</td>
                             <td>4.33.23.0.19</td>
                             <td>haydar@gmail.com</td>
@@ -302,17 +152,16 @@
 @section('script_tambahan')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script>
         const pieChart = document.getElementById("myPie");
-        const doughnutChart = document.getElementById("myDoughnut");
-
-        new Chart(pieChart, {
+        const myChart = new Chart(pieChart, {
             type: "pie",
             data: {
                 labels: ["Camin 1", "Camin 2", "Camin 3", "Golput"],
                 datasets: [{
                     label: "# of Votes",
-                    data: [23, 52, 16, 9],
+                    data: [1, 1, 1, 1],
                     backgroundColor: [
                         "#46A5FF",
                         "#0D2244",
@@ -326,30 +175,66 @@
                 responsive: true,
             },
         });
-
-        new Chart(doughnutChart, {
-            type: "doughnut",
-            data: {
-                labels: ["Camin 1", "Camin 2", "Camin 3", "Golput"],
-                datasets: [{
-                    label: "# of Votes",
-                    data: [23, 52, 16, 9],
-                    backgroundColor: [
-                        "#46A5FF",
-                        "#0D2244",
-                        "#0146BD",
-                        "#D4E9F7",
-                    ],
-                    borderWidth: 0,
-                }, ],
-            },
-            options: {
-                responsive: true,
-            },
-        });
-
-        new DataTable("#myTable", {
+        const myTable = new DataTable("#myTable", {
+            dom: 'rtip',
             responsive: true,
+            ajax: '{{ url('api/users/sudah_memilih') }}',
+            columns: [{
+                    data: "id"
+                }, {
+                    data: 'nama'
+                },
+                {
+                    data: 'nim'
+                },
+                {
+                    data: 'email'
+                },
+                {
+                    data: 'camin_id'
+                }
+            ]
         });
+
+        function refreshTable() {
+            myTable.ajax.reload();
+        }
+
+        function getData() {
+            $.ajax({
+                url: "{{ url('api/count_pilih_camin') }}",
+                method: "GET",
+                success: function(Data) {
+                    // Camin1, Camin2, Camin3, Golput
+                    let arrData = Object.values(Data);
+                    for (i in arrData) {
+                        myChart.data.datasets[0].data[i] = arrData[i];
+                    }
+                    myChart.update();
+
+                    let total_user = arrData[0] + arrData[1] + arrData[2] + arrData[3];
+                    let user_sudah_pilih = arrData[0] + arrData[1] + arrData[2];
+                    let count_camin_1 = arrData[0];
+                    let count_camin_2 = arrData[1];
+                    let count_camin_3 = arrData[2];
+                    let presentase_camin_1 = (count_camin_1 / user_sudah_pilih * 100).toFixed(2);
+                    let presentase_camin_2 = (count_camin_2 / user_sudah_pilih * 100).toFixed(2);
+                    let presentase_camin_3 = (count_camin_3 / user_sudah_pilih * 100).toFixed(2);
+                    $('#total_user').text(total_user);
+                    $('.user_sudah_pilih').text(user_sudah_pilih);
+                    $('#count_camin_1').text(count_camin_1);
+                    $('#count_camin_2').text(count_camin_2);
+                    $('#count_camin_3').text(count_camin_3);
+                    $('#presentase_camin_1').text(presentase_camin_1);
+                    $('#presentase_camin_2').text(presentase_camin_2);
+                    $('#presentase_camin_3').text(presentase_camin_3);
+                }
+            })
+        }
+
+        getData();
+        setInterval(() => {
+            getData()
+        }, 5000);
     </script>
 @endsection

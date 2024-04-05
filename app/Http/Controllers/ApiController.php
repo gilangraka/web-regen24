@@ -6,6 +6,7 @@ use App\Models\Camin;
 use App\Models\StatusVote;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApiController extends Controller
 {
@@ -99,6 +100,29 @@ class ApiController extends Controller
             "sudah_memilih" => $query2,
             "belum_memilih" => $query3
         ]);
+    }
+    public function countPilihCamin()
+    {
+        $query = User::all()->count();
+        $query1 = User::where('camin_id', 1)->get()->count();
+        $query2 = User::where('camin_id', 2)->get()->count();
+        $query3 = User::where('camin_id', 3)->get()->count();
+        return response()->json([
+            "camin_1" => $query1,
+            "camin_2" => $query2,
+            "camin_3" => $query3,
+            "golput"  => $query - ($query1 + $query2 + $query3)
+        ]);
+    }
+    public function voteCamin(Request $request)
+    {
+        $id_camin = $request->id_camin;
+        $id_user  = Auth::user()->id;
+        $updateUser = User::find($id_user);
+        $updateUser->status_memilih = 1;
+        $updateUser->camin_id = $id_camin;
+        $updateUser->save();
+        return redirect('/');
     }
     // API End
 }

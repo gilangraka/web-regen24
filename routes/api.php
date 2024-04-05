@@ -28,3 +28,4 @@ Route::get('/camin/{id}', [ApiController::class, 'getCaminByID']);
 Route::get('/get_vote', [ApiController::class, 'getStatusVote']);
 Route::get('/set_vote', [ApiController::class, 'setStatusVote']);
 Route::get('/count_user', [ApiController::class, 'countUser']);
+Route::get('/count_pilih_camin', [ApiController::class, 'countPilihCamin']);

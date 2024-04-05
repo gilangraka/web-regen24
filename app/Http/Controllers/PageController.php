@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Camin;
 use App\Models\StatusVote;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -30,7 +31,8 @@ class PageController extends Controller
         } else {
             if ($query->status == 1) {
                 if (Auth::getUser()->status_memilih == 0) {
-                    return view('pages.user.index-user');
+                    $camin = Camin::all();
+                    return view('pages.user.index-user', compact('camin'));
                 } else {
                     return view('pages.user.thank-you');
                 }
