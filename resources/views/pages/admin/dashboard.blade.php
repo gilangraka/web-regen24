@@ -29,54 +29,24 @@
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+        @foreach ($camin as $item)
+            <div class="w-full bg-white border border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex flex-col items-center py-8">
+                    <img class="w-24 h-24 md:w-36 md:h-36 mb-3 rounded-full shadow-lg object-cover"
+                        src="{{ asset('assets/img/camin') }}/{{ $item->foto }}" />
+                    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+                        {{ $item->nama }}
+                    </h5>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Nomor Urut {{ $item->id }}</span>
+
+                    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+                        <span id="presentase_camin_{{ $item->id }}"></span>% - <span
+                            id="count_camin_{{ $item->id }}"></span> dari <span class="user_sudah_pilih"></span>
+                    </h5>
+                </div>
+            </div>
+        @endforeach
         <!-- card 1 -->
-        <div class="w-full bg-white border border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex flex-col items-center py-8">
-                <img class="w-24 h-24 md:w-36 md:h-36 mb-3 rounded-full shadow-lg object-cover"
-                    src="../../public/foto.jpg" />
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    Luhut
-                </h5>
-                <span class="text-sm text-gray-500 dark:text-gray-400">Nomor Urut 1</span>
-
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    <span id="presentase_camin_1"></span>% - <span id="count_camin_1"></span> dari <span
-                        class="user_sudah_pilih"></span>
-                </h5>
-            </div>
-        </div>
-        <!-- card 2 -->
-        <div class="w-full bg-white border border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex flex-col items-center py-8">
-                <img class="w-24 h-24 md:w-36 md:h-36 mb-3 rounded-full shadow-lg object-cover"
-                    src="../../public/foto2.jpg" />
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    Komeng
-                </h5>
-                <span class="text-sm text-gray-500 dark:text-gray-400">Nomor Urut 2</span>
-
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    <span id="presentase_camin_2"></span>% - <span id="count_camin_2"></span> dari <span
-                        class="user_sudah_pilih"></span>
-                </h5>
-            </div>
-        </div>
-        <!-- card 3 -->
-        <div class="w-full bg-white border border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex flex-col items-center py-8">
-                <img class="w-24 h-24 md:w-36 md:h-36 mb-3 rounded-full shadow-lg object-cover"
-                    src="../../public/foto3.jpg" />
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    Emm..
-                </h5>
-                <span class="text-sm text-gray-500 dark:text-gray-400">Nomor Urut 3</span>
-
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    <span id="presentase_camin_3"></span>% - <span id="count_camin_3"></span> dari <span
-                        class="user_sudah_pilih"></span>
-                </h5>
-            </div>
-        </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
         <!-- card 4 -->

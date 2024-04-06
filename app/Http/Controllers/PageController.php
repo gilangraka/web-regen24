@@ -25,13 +25,13 @@ class PageController extends Controller
     public function dashboardPage()
     {
         $query = StatusVote::find("1");
+        $camin = Camin::all();
 
         if (Auth::getUser()->role_id == 1) {
-            return view('pages.admin.dashboard');
+            return view('pages.admin.dashboard', compact('camin'));
         } else {
             if ($query->status == 1) {
                 if (Auth::getUser()->status_memilih == 0) {
-                    $camin = Camin::all();
                     return view('pages.user.index-user', compact('camin'));
                 } else {
                     return view('pages.user.thank-you');
@@ -52,7 +52,8 @@ class PageController extends Controller
     public function viewCaminPage()
     {
         if (Auth::getUser()->role_id == 1) {
-            return view('pages.admin.edit_camin');
+            $camin = Camin::all();
+            return view('pages.admin.edit_camin', compact('camin'));
         }
         return redirect('/');
     }

@@ -61,7 +61,7 @@
             <li>
                 <form action="{{ url('/logoutAction') }}" method="POST">
                     @csrf
-                    <a href="#"
+                    <button type="submit"
                         class="flex items-center p-2 text-base font-medium text-red-500 hover:text-red-400 rounded-lg transition duration-75 hover:bg-[#203D6F] dark:hover:bg-gray-700 dark:text-white group">
                         <svg class="flex-shrink-0 w-6 h-6 text-red-500 transition duration-75 dark:text-red-400 group-hover:text-red-400 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -69,8 +69,8 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
                         </svg>
-                        <span class="ml-3"><button type="submit">Logout</button></span>
-                    </a>
+                        Logout
+                    </button>
                 </form>
             </li>
         </ul>
