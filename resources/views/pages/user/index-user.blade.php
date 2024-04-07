@@ -56,7 +56,7 @@
                                 <div
                                     class="bg-gradient-to-b from-[#D4E9F7] to-white rounded-2xl shadow-lg shadow-[#4A6695]">
                                     <div class="p-4">
-                                        <img src="{{ asset('assets/img/camin') }}/{{ $item->foto }}"
+                                        <img src="{{ asset('storage/') }}/{{ $item->foto }}"
                                             class="mx-auto rounded-full w-[100px] h-[100px] object-cover" />
                                         <div class="w-full">
                                             <div class="w-8/12 mx-auto rounded-full border-2 border-[#4A6695] my-2 p-1">

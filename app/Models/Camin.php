@@ -9,7 +9,7 @@ class Camin extends Model
 {
     use HasFactory;
     protected $table = "camin";
-    protected $primaryKey = "id_camin";
+    protected $primaryKey = "id";
     protected $fillable = ["nama", "visi", "misi", "foto"];
     public $timestamps = false;
 }

@@ -33,7 +33,7 @@
             <div class="w-full bg-white border border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex flex-col items-center py-8">
                     <img class="w-24 h-24 md:w-36 md:h-36 mb-3 rounded-full shadow-lg object-cover"
-                        src="{{ asset('assets/img/camin') }}/{{ $item->foto }}" />
+                        src="{{ asset('storage/') }}/{{ $item->foto }}" />
                     <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
                         {{ $item->nama }}
                     </h5>

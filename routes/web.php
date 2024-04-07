@@ -30,6 +30,8 @@ Route::group(["middleware" => "auth"], function () {
 });
 
 Route::post('/vote_camin', [ApiController::class, 'voteCamin']);
+Route::post('/tambah_camin', [ApiController::class, 'tambahCamin']);
+Route::post('/edit_camin', [ApiController::class, 'editCamin']);
 Route::post('/tambah_user', [PanitiaController::class, 'tambahUser']);
 Route::post('/import_user', [PanitiaController::class, 'importUser']);
 Route::get('/export_user', [PanitiaController::class, 'exportUser']);

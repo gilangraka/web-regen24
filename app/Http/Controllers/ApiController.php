@@ -7,6 +7,7 @@ use App\Models\StatusVote;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ApiController extends Controller
 {
@@ -123,6 +124,48 @@ class ApiController extends Controller
         $updateUser->camin_id = $id_camin;
         $updateUser->save();
         return redirect('/');
+    }
+    public function tambahCamin(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required|min:5|max:30',
+            'foto_camin' => 'required|mimes:jpg,png',
+            'visi' => 'required',
+            'visi' => 'required'
+        ]);
+        $insert = new Camin;
+        $insert->nama = $request->nama;
+        $insert->visi = $request->visi;
+        $insert->misi = $request->misi;
+
+        $foto = $request->file('foto_camin');
+        $nama_file = date('Ymdhis') . '.' . $foto->getClientOriginalExtension();
+        $destinationPath = "assets/img/camin";
+
+        $insert->foto = $nama_file;
+        $insert->save();
+        $foto->move($destinationPath, $nama_file);
+        return redirect('/dashboard/view_camin');
+    }
+    public function editCamin(Request $request)
+    {
+        $request->validate([
+            'foto_camin' => 'mimes:jpg,png',
+        ]);
+        $update = Camin::find($request->id_camin);
+        $update->nama = $request->nama;
+        $update->visi = $request->visi;
+        $update->misi = $request->misi;
+
+        if ($request->hasFile('foto_camin')) {
+            Storage::disk('public')->delete($update->foto);
+            $foto = $request->file('foto_camin');
+            $nama_file = date('Ymdhis') . '.' . $foto->getClientOriginalExtension();
+            $update->foto = $nama_file;
+            $foto->storeAs('public', $nama_file);
+        }
+        $update->save();
+        return redirect('/dashboard/view_camin');
     }
     // API End
 }
