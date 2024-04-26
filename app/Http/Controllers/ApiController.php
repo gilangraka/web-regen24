@@ -140,7 +140,7 @@ class ApiController extends Controller
 
         $foto = $request->file('foto_camin');
         $nama_file = date('Ymdhis') . '.' . $foto->getClientOriginalExtension();
-        $destinationPath = "assets/img/camin";
+        $destinationPath = "storage";
 
         $insert->foto = $nama_file;
         $insert->save();

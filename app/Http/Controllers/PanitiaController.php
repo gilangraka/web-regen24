@@ -56,7 +56,7 @@ class PanitiaController extends Controller
 
     public function exportUser()
     {
-        return Excel::download(new UsersExport, 'data_users.xlsx');
+        return Excel::download(new UsersExport, 'data_users_export.xlsx');
     }
     public function tambahCamin(Request $request)
     {
